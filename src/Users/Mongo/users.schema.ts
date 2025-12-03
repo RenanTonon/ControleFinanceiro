@@ -17,7 +17,7 @@ export class Users {
     @Prop({required:true})
     dataNascimento:string
 
-    @Prop({required:true})
+    @Prop({required:true, default:Role.User})
     role:Role[]
     
 }

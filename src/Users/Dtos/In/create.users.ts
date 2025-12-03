@@ -21,6 +21,6 @@ export class CreateNewUserIn {
 
     @IsNotEmpty()
     @IsString()
-    role:Role[]
+    role:Role
 
 }

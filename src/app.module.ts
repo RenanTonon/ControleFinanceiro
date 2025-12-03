@@ -4,6 +4,9 @@ import {MongooseModule} from '@nestjs/mongoose'
 import { AuthModule } from './Auth/auth.module';
 import {ConfigModule, ConfigService} from '@nestjs/config'
 import { JwtModule } from '@nestjs/jwt'
+import { APP_GUARD } from '@nestjs/core';
+import { RolesGuard } from './Auth/Role/role.guard';
+import { AuthGuard } from './Auth/auth.guard';
  @Module({
   imports: [MongooseModule.forRoot('mongodb://localhost:27017/controle-financeiro'),
     ConfigModule.forRoot({isGlobal:true,}),
@@ -18,6 +21,6 @@ import { JwtModule } from '@nestjs/jwt'
     })
     ,UserModule,AuthModule],
   controllers: [],
-  providers: [],
+  providers: [{provide: APP_GUARD, useClass: AuthGuard},{provide: APP_GUARD, useClass: RolesGuard}],
 })
 export class AppModule {}
