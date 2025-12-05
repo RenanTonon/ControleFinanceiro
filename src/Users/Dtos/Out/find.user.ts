@@ -1,7 +1,7 @@
 import { IsNotEmpty, IsString } from "class-validator"
 import { Role } from "src/Auth/Role/role.enum"
 
-export class findUserOut {
+export class FindUserOut {
     @IsNotEmpty()
     @IsString()
     idUser:String
